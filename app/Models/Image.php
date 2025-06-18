@@ -8,21 +8,19 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Image extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'path'
+        'path', 
+        'imageable_id', 
+        'imageable_type'
     ];
     
-    public function product(): HasOne
+    public function imageable(): MorphTo
     {
-        return $this->hasOne(Product::class, 'img_id');
-    }
-
-    public function productCategory(): BelongsToMany
-    {
-        return $this->belongsToMany(Category::class, 'products', 'category_id', 'img_id');
+        return $this->morphTo();
     }
 }
