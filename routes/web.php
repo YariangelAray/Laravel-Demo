@@ -7,4 +7,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/posts', [PostController::class, 'index']);
+Route::prefix('posts')->group( function(){
+    Route::get('/', [PostController::class, 'index'])->name('posts.index');
+    Route::get('/create', [PostController::class, 'create'])->name('posts.create');
+    Route::post('/store', [PostController::class, 'store'])->name('posts.store');
+});

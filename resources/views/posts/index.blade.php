@@ -2,8 +2,8 @@
 
 @section('header')
     <h1 class="text-[3rem] text-white font-bold">Posts</h1>
+    <a href="/posts/create" class="bg-[#d3ddeec9] p-[5px_12px] text-white font-semibold rounded-[10px] absolute right-[20px]">Nuevo Post</a>
 @endsection
-
 
 @section('content')    
 
@@ -13,7 +13,7 @@
                 <h1 class="font-semibold leading-8 text-2xl italic text-center">{{$post->title}}</h1>            
             </div>
             <div class="card__image overflow-hidden rounded-[15px] h-[250px]">
-                <img src="{{$post->image->path}}" alt="image">
+                <img src="{{$post->image->path ?? 'No tiene'}}" alt="image">
             </div>
             <div class="card__body">
                 <p class="italic">{{$post->body}}</p>
@@ -21,7 +21,7 @@
         </div>
     @endforeach
 
-    @endsection
+@endsection
     
 @section('footer')
     {{$posts->links()}}

@@ -9,7 +9,7 @@
     <title>Document</title>
 </head>
 <body>
-    <header class="h-[100px] bg-[#1b3864] flex items-center pl-[20px] shadow-xl/20 mb-[20px]">        
+    <header class="h-[100px] bg-[#1b3864] flex items-center p-[20px] shadow-xl/20 mb-[20px] relative">        
         @yield('header')
     </header>
     <main class="flex flex-wrap justify-center">
